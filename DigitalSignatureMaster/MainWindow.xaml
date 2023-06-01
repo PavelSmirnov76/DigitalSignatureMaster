@@ -1,0 +1,53 @@
+﻿<Window x:Class="DigitalSignatureMaster.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Подписание документа">
+                <Grid>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                        Выберете путь к файлу.
+                    </Label>
+                    <TextBlock Grid.Column="0" DataContext="{Binding File}" Text="{Binding Path=FilePath}" Grid.ColumnSpan="2" Margin="0,58,0,0" Grid.RowSpan="2" />
+                    <Button Grid.Column="2" DataContext="{Binding File}" Command="{Binding SelectCommand}" Margin="0,58,0,0" Grid.RowSpan="2"/>
+                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,58,0,0" Grid.RowSpan="2">
+                        Выберете путь к файлу сертификата.
+                    </Label>
+                    <TextBlock Grid.Row="2" Grid.Column="0" DataContext="{Binding Cert}" Text="{Binding Path=FilePath}" Grid.ColumnSpan="2" Margin="0,58,0,0" Grid.RowSpan="2"/>
+                    <Button Grid.Row="2" Grid.Column="2" DataContext="{Binding Cert}" Command="{Binding SelectCommand}" Margin="0,58,0,0" Grid.RowSpan="2"/>
+                    <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,58,0,0" Grid.RowSpan="2">
+                        Выберете путь куда сохранить подпись.
+                    </Label>
+                    <TextBlock Grid.Row="4" Grid.Column="0" DataContext="{Binding Sign}" Text="{Binding Path=FilePath}" Grid.ColumnSpan="2" Margin="0,58,0,0" Grid.RowSpan="2"/>
+                    <Button Grid.Row="4" Grid.Column="2" DataContext="{Binding Sign}" Command="{Binding SelectCommand}" Margin="0,58,0,0" Grid.RowSpan="2"/>
+                    <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,58,0,0" Grid.RowSpan="2" Command="{Binding SignCommand}">
+                        Подписать документ
+                    </Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Проверка подписи">
+                <Grid>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
